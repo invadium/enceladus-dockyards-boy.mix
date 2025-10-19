@@ -27,28 +27,28 @@ class Starfield {
         let star = {
             a: true,
             falling: falling,
-            c: this._.lib.math.rndi(3),
-            //x: this._.env.width,
-            //y: this._.lib.math.rndi(this._.env.height),
-            //x: this._.lib.math.rndi(this._.env.width),
+            c: math.rndi(3),
+            //x: this.__.getMod().env.width,
+            //y: math.rndi(this.__.getMod().env.height),
+            //x: math.rndi(this.__.getMod().env.width),
             //y: (this.speed < 0)? -EDGE : rx(1) + EDGE,
             //x: (this.speed < 0)? -EDGE : rx(1) + EDGE,
             //y: RND(ry(1)),
             x: -rx(.5) + RND(rx(2)),
             y: (this.speed > 0)? -EDGE : ry(1) + EDGE,
-            s: 4 + this._.lib.math.rndi(8), // relative speed
-            m: 5 + this._.lib.math.rndi(10),
+            s: 4 + math.rndi(8), // relative speed
+            m: 5 + math.rndi(10),
         }
         if (falling) {
             star = {
                 a: true,
                 falling: falling,
-                c: this._.lib.math.rndi(3),
-                x: this._.lib.math.rndi(this._.env.width*2),
+                c: math.rndi(3),
+                x: math.rndi(this.__.getMod().env.width*2),
                 y: -20,
-                dx: -150 - lib.math.rndi(150),
-                dy: 300 + lib.math.rndi(300),
-                m: 4 + this._.lib.math.rndi(5),
+                dx: -150 - math.rndi(150),
+                dy: 300 + math.rndi(300),
+                m: 4 + math.rndi(5),
             }
         }
 
@@ -63,8 +63,8 @@ class Starfield {
     }
 
     evo(dt) {
-        if (lib.math.rndf() < STAR_FQ * dt) this.newStar(false)
-        if (lib.math.rndf() < METEOR_FQ * dt) this.newStar(true)
+        if (math.rndf() < STAR_FQ * dt) this.newStar(false)
+        if (math.rndf() < METEOR_FQ * dt) this.newStar(true)
 
         // move stars
         const speed = this.speed
