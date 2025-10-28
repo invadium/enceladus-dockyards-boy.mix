@@ -115,7 +115,7 @@ class LayoutControl {
         let blueprint
         this.compileBlueprints(player)
         if (!blueprintName) {
-            blueprint = _.bot.selectBlueprint(player, this.readyBlueprints)
+            blueprint = __$.bot.selectBlueprint(player, this.readyBlueprints)
             log('bot selected a blueprint ' + blueprint.name
                 + ' for ' + player.name)
         } else {
@@ -130,9 +130,9 @@ class LayoutControl {
         env.state = 'layout'
         let blueprint
         if (rnd() < env.tune.selectExistingBlueprint) {
-            blueprint = _.bot.selectBlueprint(player, this.readyBlueprints)
+            blueprint = __$.bot.selectBlueprint(player, this.readyBlueprints)
         } else {
-            blueprint = _.bot.createBlueprint(player,
+            blueprint = __$.bot.createBlueprint(player,
                 lab.screen.design.control, this.emptyBlueprints)
         }
         uniquelyName(blueprint, this.blueprintsMap, 'v')
@@ -202,7 +202,7 @@ class LayoutControl {
 
         } else if (blueprint === 'random') {
             this.lock()
-            blueprint = _.bot.selectBlueprint(this.player, this.readyBlueprints)
+            blueprint = __$.bot.selectBlueprint(this.player, this.readyBlueprints)
             this.designForBlueprint(blueprint)
 
         } else if (blueprint) {

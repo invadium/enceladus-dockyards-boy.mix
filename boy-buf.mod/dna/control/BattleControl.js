@@ -39,8 +39,8 @@ class BattleControl {
 
     installAutopilot(ship) {
         log('installing autopilot for ' + ship.name + '/' + ship.player.name)
-        ship.autoSelect = _.bot.computingCore.autoSelect
-        ship.autoPilot = _.bot.computingCore.autoPilot
+        ship.autoSelect = __$.bot.computingCore.autoSelect
+        ship.autoPilot = __$.bot.computingCore.autoPilot
     }
 
     startBattle(playerA, playerB) {

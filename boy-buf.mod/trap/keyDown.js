@@ -1,19 +1,20 @@
 
 function handleControl(e) {
+    const tune = $.env.tune
     switch(e.code) {
         case 'Minus':
-            _$.env.tune.scale *= (1 - _$.env.tune.scaleFactor)
+            tune.scale *= (1 - tune.scaleFactor)
             break
 
         case 'Equal':
-            _$.env.tune.scale *= (1 + _$.env.tune.scaleFactor)
+            tune.scale *= (1 + tune.scaleFactor)
             break
 
         case 'Escape':
             // TODO reset the game?
             break
         case 'F8':
-            _$.lib.img.screenshot('enceladus-dockyards')
+            $.lib.img.screenshot('enceladus-dockyards')
             break
     }
 }

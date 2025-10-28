@@ -3,8 +3,8 @@ module.exports = function() {
     lib.util.loadConfig()
 
     // patches
-    _$.boy = _ // mix shortcut
-    lib.math = _$.lib.math
+    $.boy = __$ // mix shortcut
+    // lib.math = _$.lib.math
     res.pods.drawImage = image
 
     lib.remap.sfx()

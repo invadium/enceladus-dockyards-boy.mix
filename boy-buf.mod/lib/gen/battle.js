@@ -1,6 +1,6 @@
 function battle() {
     const battle = lab.screen.touch('battle', dna.trait.hidable)
-    _$.battle = battle
+    $.battle = battle
 
     battle.spawn(dna.Starfield, {
         x: 0,

@@ -1,15 +1,15 @@
 function configure() {
-    if (_$.env.config.fast) {
+    if ($.env.config.fast) {
         env.style.holdBeforeStart = 0
         env.style.fadeIn = 0
         env.style.fadeOut = 0
-        _$.env.tune.fadeKeep = 0
-        _$.env.tune.fadeOut = 0
+        $.env.tune.fadeKeep = 0
+        $.env.tune.fadeOut = 0
     }
 }
 
 function jumpToMenu() {
-    _.trap.attach(function start() {
+    trap.attach(function start() {
         log('hyperjump to the menu')
         trap('menu')
     })
@@ -17,7 +17,7 @@ function jumpToMenu() {
 }
 
 function startNewGame() {
-    _.trap.attach(function start() {
+    trap.attach(function start() {
         log('hyperjump to newgame')
         trap('newGame', {
              playerA: {
@@ -49,14 +49,15 @@ function autostartBattle() {
     playerB.prev = playerA
     playerA.next = playerB
 
-    if (_$.env.config.botA) playerA.human = false
-    if (_$.env.config.botB) playerB.human = false
-    if (_$.env.config.humanA) playerA.human = true
-    if (_$.env.config.humanB) playerB.human = true
+    const config = $.env.config
+    if (config.botA) playerA.human = false
+    if (config.botB) playerB.human = false
+    if (config.humanA) playerA.human = true
+    if (config.humanB) playerB.human = true
 
     const control = lab.screen.layout.control
-    control.autoConstruct(playerA, _$.env.config.blueprintA)
-    control.autoConstruct(playerB, _$.env.config.blueprintB)
+    control.autoConstruct(playerA, config.blueprintA)
+    control.autoConstruct(playerB, config.blueprintB)
 
     lab.screen.show()
     trap('battle', playerB)
@@ -64,8 +65,9 @@ function autostartBattle() {
 }
 
 function hyperjump() {
-    if (_$.env.config.menu) return jumpToMenu()
-    if (_$.env.config.newgame) return startNewGame()
-    if (_$.env.config.battle) return autostartBattle()
+    const config = $.env.config
+    if (config.menu) return jumpToMenu()
+    if (config.newgame) return startNewGame()
+    if (config.battle) return autostartBattle()
     return false
 }

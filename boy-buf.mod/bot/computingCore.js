@@ -1,7 +1,7 @@
 function autoSelect() {
     const actions = this.actionsAvailable()
     if (actions.length === 0) return 'skip'
-    else return _$.lib.math.rnde(actions)
+    else return $.lib.math.rnde(actions)
 }
 
 function autoPilot(target) {

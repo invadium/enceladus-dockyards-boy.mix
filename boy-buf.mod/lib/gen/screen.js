@@ -1,9 +1,10 @@
 function screen() {
     // setup gameboy screen resolution
-    ctx.width = _._$.env.tune.width
-    ctx.height = _._$.env.tune.height
-    ctx.canvas.width = _._$.env.tune.width
-    ctx.canvas.height = _._$.env.tune.height
+    const tune = $.env.tune
+    ctx.width = tune.width
+    ctx.height = tune.height
+    ctx.canvas.width = tune.width
+    ctx.canvas.height = tune.height
 
     // create sub-screens
     lab.screen.touch('menu')

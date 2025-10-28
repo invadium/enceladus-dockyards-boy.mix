@@ -177,7 +177,7 @@ class Ship {
                 )
 
             } else {
-                const pod = _$.lib.math.rnde(pods)
+                const pod = lib.math.rnde(pods)
                 //log('selected ' + pod.name)
                 this.takePodAction(pod, target, cell)
 
@@ -222,7 +222,7 @@ class Ship {
         if (!pods || pods.length === 0) {
             pods = target.pods.filter(t => !t.dead && t.system)
         }
-        return _$.lib.math.rnde(pods)
+        return lib.math.rnde(pods)
     }
 
     manualTarget(target, next, back) {
