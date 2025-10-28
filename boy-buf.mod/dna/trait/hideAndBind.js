@@ -5,7 +5,7 @@ function init() {
 
 function show() {
     this.hidden = false
-    lab.control.player.bindAll(this)
+    lab.monitor.controller.bindAll(this)
 }
 
 function hide() {

@@ -174,12 +174,12 @@ class LayoutControl {
     lock() {
         if (this.state) return
         this.state = 1
-        lab.control.player.unbindAll(this)
+        lab.monitor.controller.releaseAll(this)
     }
 
     unlock() {
         this.state = 0
-        lab.control.player.bindAll(this)
+        lab.monitor.controller.bindAll(this)
     }
 
     designForBlueprint(blueprint) {
@@ -214,6 +214,7 @@ class LayoutControl {
     back() {
         this.lock()
         lab.vfx.itransit(() => {
+            log('hiding right here?')
             lab.screen.layout.hide()
             trap('menu')
         })
@@ -240,12 +241,12 @@ class LayoutControl {
         else return this.blueprints[this.current]
     }
 
-    activate(action) {
-        switch(action) {
-            case 2: this.prev(); break;
-            case 4: this.next(); break;
-            case 5: this.done(); break;
-            case 6: this.back(); break;
+    actuate(action) {
+        switch(action.id) {
+            case dry.LEFT:  this.prev(); break;
+            case dry.RIGHT: this.next(); break;
+            case dry.A:     this.done(); break;
+            case dry.B:     this.back(); break;
         }
     }
 }

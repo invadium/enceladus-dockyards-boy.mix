@@ -31,8 +31,8 @@ class DesignControl {
     selectPod() {
         this.__.blueprint.active = false
         this.__.parts.active = true
-        lab.control.player.unbindAll(this.grid)
-        lab.control.player.bindAll(this.designer)
+        lab.monitor.controller.releaseAll(this.grid)
+        lab.monitor.controller.bindAll(this.designer)
     }
 
     placePod(pod) {
@@ -55,8 +55,8 @@ class DesignControl {
             this.__.parts.active = false
             this.__.blueprint.active = true
             this.grid.pod = pod
-            lab.control.player.unbindAll(this.designer)
-            lab.control.player.bindAll(this.grid)
+            lab.monitor.controller.releaseAll(this.designer)
+            lab.monitor.controller.bindAll(this.grid)
         }
     }
 
@@ -123,7 +123,7 @@ class DesignControl {
         const control = this
         const activeScreen = this.__
         lab.vfx.itransit(() => {
-            control.unbindAll()
+            control.releaseAll()
             activeScreen.hide()
 
             if (player.next) {
@@ -136,8 +136,8 @@ class DesignControl {
         })
     }
 
-    unbindAll() {
-        lab.control.player.unbindAll(this.grid)
-        lab.control.player.unbindAll(this.designer)
+    releaseAll() {
+        lab.monitor.controller.releaseAll(this.grid)
+        lab.monitor.controller.releaseAll(this.designer)
     }
 }

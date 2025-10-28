@@ -228,7 +228,7 @@ class Ship {
     manualTarget(target, next, back) {
         target.visualGrid.apply = next
         target.visualGrid.back = back
-        lab.control.player.bindAll(target.visualGrid)
+        lab.monitor.controller.bindAll(target.visualGrid)
     }
 
     turn() {

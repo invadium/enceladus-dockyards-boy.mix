@@ -17,7 +17,7 @@ function fadeOut() {
     if (this.state) return
     this.state = 1
 
-    lab.control.player.unbindAll(this)
+    lab.monitor.controller.releaseAll(this)
 
     const activeScreen = this
     lab.vfx.itransit(() => {
@@ -49,7 +49,7 @@ function draw() {
     text('by Igor Khotin', x, y)
 }
 
-function activate(action) {
+function actuate(action) {
     this.fadeOut()
     sfx.play('use', env.mixer.level.apply)
 }

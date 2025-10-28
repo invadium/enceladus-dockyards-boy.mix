@@ -63,11 +63,11 @@ class Designer {
         }
     }
 
-    activate(action) {
-        switch(action) {
-            case 2: this.prev();  break;
-            case 4: this.next();  break;
-            case 5: this.place(); break;
+    actuate(action) {
+        switch(action.id) {
+            case dry.LEFT:  this.prev();  break;
+            case dry.RIGHT: this.next();  break;
+            case dry.A:     this.place(); break;
         }
     }
 

@@ -88,7 +88,7 @@ function setup() {
         },
         hide: function() {
             this.hidden = true
-            lab.control.player.unbindAll(menu)
+            lab.monitor.controller.releaseAll(menu)
         },
     })
 }
@@ -100,7 +100,7 @@ function mainMenu() {
     lib.util.saveConfig()
 
     this.__.hide()
-    lab.control.player.unbindAll(this.menu)
+    lab.monitor.controller.releaseAll(this.menu)
 
     trap('menu', true)
 }

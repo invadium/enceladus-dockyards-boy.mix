@@ -21,32 +21,32 @@ class ShipGrid {
         }
     }
 
-    activate(action) {
+    actuate(action) {
         let nx = this.target.x
         let ny = this.target.y
-        switch(action) {
-            case 1:
+        switch(action.id) {
+            case dry.UP:
                 ny--
                 if (this.blueprint.cellType(nx, ny) === 0) nx--
                 if (this.blueprint.cellType(nx, ny) === 0) nx += 2
                 break
-            case 2:
+            case dry.LEFT:
                 nx--
                 if (this.blueprint.cellType(nx, ny) === 0) ny--
                 if (this.blueprint.cellType(nx, ny) === 0) ny += 2
                 break
-            case 3:
+            case dry.DOWN:
                 ny++
                 if (this.blueprint.cellType(nx, ny) === 0) nx++
                 if (this.blueprint.cellType(nx, ny) === 0) nx -= 2
                 break
-            case 4:
+            case dry.RIGHT:
                 nx++
                 if (this.blueprint.cellType(nx, ny) === 0) ny++
                 if (this.blueprint.cellType(nx, ny) === 0) ny -= 2
                 break
-            case 5: if (this.apply) this.apply(); return;
-            case 6: if (this.back) this.back();  return;
+            case dry.A: if (this.apply) this.apply(); return;
+            case dry.B: if (this.back) this.back();  return;
         }
 
         const type = this.blueprint.cellType(nx, ny)
@@ -163,7 +163,7 @@ class ShipGrid {
 
         this.drawGrid(0)
         this.drawGrid(1)
-        if (this.playerId) this.drawTarget()
+        if (this._controllerId) this.drawTarget()
 
         restore()
     }

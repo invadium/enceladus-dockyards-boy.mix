@@ -61,7 +61,7 @@ function setup() {
         },
         hide: function() {
             this.hidden = true
-            lab.control.player.unbindAll(menu)
+            lab.monitor.controller.releaseAll(menu)
 
         },
     })
@@ -88,7 +88,7 @@ function gameConfig() {
 function newGame(config) {
     if (this.state) return
     this.state = 1
-    lab.control.player.unbindAll(this.menu)
+    lab.monitor.controller.releaseAll(this.menu)
 
     config = config || this.gameConfig()
 
@@ -104,7 +104,7 @@ function options() {
     this.state = 1
 
     this.__.hide()
-    lab.control.player.unbindAll(this.menu)
+    lab.monitor.controller.releaseAll(this.menu)
 
     trap('options')
 }

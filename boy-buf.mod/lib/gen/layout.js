@@ -3,8 +3,8 @@ function layout() {
     $.layout = layout
 
     augment(layout, {
-        activate: function(action) {
-            this.control.activate(action)
+        actuate: function(action) {
+            this.control.actuate(action)
         }
     })
 

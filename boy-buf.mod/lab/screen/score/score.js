@@ -63,7 +63,7 @@ function draw() {
 }
 
 /*
-function activate(action) {
+function actuate(action) {
     this.fadeOut()
     sfx.play('use', env.mixer.level.apply)
 }

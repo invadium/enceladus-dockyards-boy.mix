@@ -74,7 +74,7 @@ class BattleControl {
         shipB.chargeForBattle()
 
         this.turnA()
-        lab.control.player.bindAll(this)
+        lab.monitor.controller.bindAll(this)
     }
 
     humanTurn(source, target, menu, nextAction) {
@@ -133,7 +133,7 @@ class BattleControl {
                         // have to select target manually
                         source.manualTarget(target, function() {
                             source.launch(selected, target, this.target)
-                            lab.control.player.unbindAll(this)
+                            lab.monitor.controller.releaseAll(this)
 
                             if (!control.endCondition()) {
                                 if (skip) setTimeout(nextAction, env.tune.turnSkipDelay)
@@ -273,8 +273,8 @@ class BattleControl {
         }
     }
 
-    activate(action) {
-        if (action === 6 && !this.shipA.human && !this.shipB.human) {
+    actuate(action) {
+        if (action.id === dry.B && !this.shipA.human && !this.shipB.human) {
             this.finishBattle()
         }
     }
@@ -312,7 +312,7 @@ class BattleControl {
     finishBattle() {
         this.status = HALT
         const activeScreen = this.__
-        lab.control.player.unbindAll()
+        lab.monitor.controller.releaseAll()
         const scoreData = this.determineWinner()
 
         let delay = env.tune.finishBattleDelay

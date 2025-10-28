@@ -23,7 +23,7 @@ function loadFile(file) {
 }
 
 function uploadJSON() {
-    lab.control.player.stopAll()
+    lab.monitor.controller.cutOffAllActions()
     let input = document.createElement('input')
     input.setAttribute('type', 'file')
     input.setAttribute('accept', 'text/bas')

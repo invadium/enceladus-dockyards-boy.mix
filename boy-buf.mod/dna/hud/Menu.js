@@ -46,13 +46,13 @@ class Menu {
         this.hidden = false
         this.state = ACTIVE
         this.lastTouch = Date.now()
-        lab.control.player.bindAll(this)
+        lab.monitor.controller.bindAll(this)
     }
 
     hide() {
         this.hidden = true
         this.state = DISABLED
-        lab.control.player.unbindAll(this)
+        lab.monitor.controller.releaseAll(this)
     }
 
     selectFrom(st) {
@@ -165,15 +165,15 @@ class Menu {
         sfx.play('noisy', env.mixer.level.apply)
     }
 
-    activate(action) {
+    actuate(action) {
         this.lastTouch = Date.now()
-        switch(action) {
-            case 1: this.prev(); break;
-            case 2: this.left(); break;
-            case 3: this.next(); break;
-            case 4: this.right(); break;
-            case 5: this.select(); break;
-            case 6: this.back(); break;
+        switch(action.id) {
+            case dry.UP:    this.prev();   break;
+            case dry.LEFT:  this.left();   break;
+            case dry.DOWN:  this.next();   break;
+            case dry.RIGHT: this.right();  break;
+            case dry.A:     this.select(); break;
+            case dry.B:     this.back();   break;
         }
     }
 
