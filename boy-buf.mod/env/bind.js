@@ -51,15 +51,6 @@ const fixed = {
     speedUp:        'BracketRight',
     slowDown:       'BracketLeft',
     speedNormal:    'Quote',
-
-    enter:          'Enter',
-    backspace:      'Backspace',
-    startCheating:  'Backslash',
-
-    //releaseAll:     'End',
-    zoomIn:         'Equal',
-    zoomOut:        'Minus',
-    autoZoom:       'Digit0',
 }
 
 // keyboard controllers mapping
@@ -74,25 +65,25 @@ const fixed = {
 //
 const keyboardControllersMapping = [
     // quaker
-    [ 'KeyW', 'KeyA', 'KeyS', 'KeyD',
-        'KeyX', 'KeyZ', 'KeyF', 'KeyG',
-        'Key1', 'Key2', 'Key3', 'Key4',  
-        'KeyR', 'KeyT',                        // menu, select
+    [ 'KeyW', 'KeyA', 'KeyS', 'KeyD',          // movement
+        'KeyX', 'KeyZ', 'KeyF', 'KeyG',        // ABXY
+        '', '', '', '',                        // shoulders
+        'KeyQ', 'KeyE',                        // menu, select
         // === alternative mapping ===
         'None',                                
         '', '', '', '',                    
         'Space', 'ShiftLeft', 'KeyE', 'KeyQ'
     ],
     // arrower
-    [ 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight',
-        'ControlRight', 'ShiftRight', 'End', 'Home',
-        'PageUp', 'PageDown', 'Insert', 'Delete',
-    ],
-    // vimer
-    // TODO remap - totally inconvenient
-    [ 'KeyK', 'KeyH', 'KeyJ', 'KeyL',
-        'KeyM', 'KeyN', 'KeyY', 'KeyU',
+    [ 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight',       // movement
+        'Enter', 'Backspace', 'Backslash', 'Quote',            // ABXY
+        '', '', '', '',                                        // shoulders
+        'Escape', 'KeyP',                                                // menu, select
+
+        // === alternative mapping ===
+        'None',
         '', '', '', '',
+        'ControlRight', 'ControlRight', 'Delete', 'End',
     ],
     // numpader
     [
