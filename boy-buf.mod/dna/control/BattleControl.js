@@ -274,7 +274,8 @@ class BattleControl {
     }
 
     actuate(action) {
-        if (action.id === dry.B && !this.shipA.human && !this.shipB.human) {
+        if ((action.id === dry.B || action.id === dry.MENU)
+                && !this.shipA.human && !this.shipB.human) {
             this.finishBattle()
         }
     }

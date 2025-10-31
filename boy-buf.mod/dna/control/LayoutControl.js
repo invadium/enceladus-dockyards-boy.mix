@@ -214,7 +214,6 @@ class LayoutControl {
     back() {
         this.lock()
         lab.vfx.itransit(() => {
-            log('hiding right here?')
             lab.screen.layout.hide()
             trap('menu')
         })
@@ -245,8 +244,16 @@ class LayoutControl {
         switch(action.id) {
             case dry.LEFT:  this.prev(); break;
             case dry.RIGHT: this.next(); break;
-            case dry.A:     this.done(); break;
-            case dry.B:     this.back(); break;
+            case dry.A:     
+            case dry.X:
+            case dry.SELECT:
+                this.done()
+                break
+            case dry.B:     
+            case dry.Y:
+            case dry.MENU:
+                this.back()
+                break
         }
     }
 }

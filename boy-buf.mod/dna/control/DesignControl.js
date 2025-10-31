@@ -39,12 +39,7 @@ class DesignControl {
         if (!pod) return
 
         if (pod.name === 'build') {
-            if (this.player.balance >= 0) {
-                this.build()
-            } else {
-                sfx.play('denied', env.mixer.level.denied)
-            }
-
+            this.tryToBuild()
         } else if (pod.name === 'download') {
             this.blueprint.download()
 
@@ -134,6 +129,28 @@ class DesignControl {
                 trap('battle', player)
             }
         })
+    }
+
+    tryToBuild() {
+        // TODO test if the design is actually there (at least somethign is placed)
+        if (this.player.balance >= 0) {
+            this.build()
+        } else {
+            sfx.play('denied', env.mixer.level.denied)
+        }
+    }
+
+    cancel() {
+        const control = this
+        const activeScreen = this.__
+
+        lab.vfx.itransit(() => {
+            control.releaseAll()
+            activeScreen.hide()
+
+            trap('menu')
+        })
+        sfx.play('apply', env.mixer.level.apply)
     }
 
     releaseAll() {

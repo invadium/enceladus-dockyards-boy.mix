@@ -25,6 +25,7 @@ class ShipGrid {
         let nx = this.target.x
         let ny = this.target.y
         switch(action.id) {
+            // cursor movement
             case dry.UP:
                 ny--
                 if (this.blueprint.cellType(nx, ny) === 0) nx--
@@ -45,8 +46,30 @@ class ShipGrid {
                 if (this.blueprint.cellType(nx, ny) === 0) ny++
                 if (this.blueprint.cellType(nx, ny) === 0) ny -= 2
                 break
-            case dry.A: if (this.apply) this.apply(); return;
-            case dry.B: if (this.back) this.back();  return;
+
+            // targeting or module placement
+            case dry.A:
+                if (this.apply) this.apply()
+                return
+
+            case dry.B:
+                if (this.back) this.back()
+                return
+
+            case dry.X:
+            case dry.Y:
+                if (this.apply) this.apply('remove')
+                return
+
+            case dry.START:
+                // TODO build the design
+                if (this.start) this.start()
+                break
+
+            case dry.MENU:
+                // TODO jump back to the main menu
+                if (this.menu) this.menu()
+                break
         }
 
         const type = this.blueprint.cellType(nx, ny)

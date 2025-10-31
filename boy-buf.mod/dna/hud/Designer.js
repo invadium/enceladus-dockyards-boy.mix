@@ -67,7 +67,19 @@ class Designer {
         switch(action.id) {
             case dry.LEFT:  this.prev();  break;
             case dry.RIGHT: this.next();  break;
-            case dry.A:     this.place(); break;
+            case dry.A:
+            case dry.X:
+                this.place()
+                break
+
+            case dry.MENU:
+                // TODO ask "are you sure?" and jump back to the main menu
+                this.__.control.cancel()
+                break
+
+            case dry.START:
+                this.__.control.tryToBuild()
+                break
         }
     }
 

@@ -26,10 +26,11 @@ function design() {
         name: 'grid',
         x: 4,
         y: 28,
-        apply: function() {
+
+        apply: function(action) {
             if (this.pod) {
                 const {x, y} = this.target
-                if (this.pod.name === 'remove') {
+                if (this.pod.name === 'remove' || action === 'remove') {
                     this.__.control.removePod(x, y, false)
                 } else {
                     this.__.control.installPod(this.pod, x, y)
@@ -49,11 +50,20 @@ function design() {
                 }
             }
         },
+
         back: function() {
             this.pod = null
             this.__.control.selectPod()
             sfx.play('apply', env.mixer.level.switch)
-        }
+        },
+
+        start: function() {
+            this.__.control.selectPod()
+        },
+
+        menu: function() {
+            this.__.control.cancel()
+        },
     })
 
     const designerFrame = design.spawn(dna.hud.Frame, {

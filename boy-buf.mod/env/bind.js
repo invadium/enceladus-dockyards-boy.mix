@@ -19,8 +19,8 @@ const R1     = 10
 const L2     = 11
 const R2     = 12
 // special
-const MENU   = 13
-const START  = 14
+const MENU   = 13   // menu/select/back
+const START  = 14   // start or pause
 
 let bind
 
@@ -78,12 +78,12 @@ const keyboardControllersMapping = [
     [ 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight',       // movement
         'Enter', 'Backspace', 'Backslash', 'Quote',            // ABXY
         '', '', '', '',                                        // shoulders
-        'Escape', 'KeyP',                                                // menu, select
+        'Escape', 'KeyP',                                      // menu, select
 
         // === alternative mapping ===
         'None',
         '', '', '', '',
-        'ControlRight', 'ControlRight', 'Delete', 'End',
+        'ControlRight', 'ShiftRight', 'Delete', 'End',
     ],
     // numpader
     [

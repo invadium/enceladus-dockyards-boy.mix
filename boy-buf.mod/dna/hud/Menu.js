@@ -165,6 +165,7 @@ class Menu {
         sfx.play('noisy', env.mixer.level.apply)
     }
 
+    // handle controller actions (from monitor/controller)
     actuate(action) {
         this.lastTouch = Date.now()
         switch(action.id) {
@@ -172,8 +173,21 @@ class Menu {
             case dry.LEFT:  this.left();   break;
             case dry.DOWN:  this.next();   break;
             case dry.RIGHT: this.right();  break;
-            case dry.A:     this.select(); break;
-            case dry.B:     this.back();   break;
+
+            case dry.A:    
+            case dry.X:
+                this.select()
+                break
+            case dry.B:
+            case dry.Y:
+            case dry.MENU:
+                this.back()
+                break
+
+            case dry.START:
+                if (isFun(this.__.control.newGame)) this.__.control.newGame()
+                else this.back()
+                break
         }
     }
 
