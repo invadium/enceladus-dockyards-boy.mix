@@ -104,6 +104,55 @@ const style = {
             c1: '#3d4466',
             c2: '#24b3b3',
             c3: '#e2e6cf',
-        }
+        },
+        // mist gb palette
+        mist: {
+            c0: '#2d1b00',
+            c1: '#1e606e',
+            c2: '#5ab9a8',
+            c3: '#c4f0c2',
+        },
+        // earthbound gb plain flavour palette
+        earthbound: {
+            c0: '#1b1b1b',
+            c1: '#564295',
+            c2: '#9594c0',
+            c3: '#d5e6cb',
+        },
+        // 2bit demichrome palette
+        demichrome: {
+            c0: '#211e20',
+            c1: '#555568',
+            c2: '#a0a08b',
+            c3: '#e9efec',
+        },
+        // rustic gb palette
+        rustic: {
+            c0: '#2c2137',
+            c1: '#764462',
+            c2: '#a96868',
+            c3: '#edb4a1',
+        },
+        // coral 4 palette
+        coral: {
+            c0: '#68518a',
+            c1: '#7c9aac',
+            c2: '#f4949c',
+            c3: '#ffd0a4',
+        },
+        // deadland 2-bit palette
+        deadland: {
+            c0: '#330126',
+            c1: '#7b6149',
+            c2: '#8bb5b3',
+            c3: '#d9e6fa',
+        },
+        // dune-gb palette
+        dune: {
+            c0: '#320404',
+            c1: '#e67718',
+            c2: '#dcac70',
+            c3: '#edcda7',
+        },
     },
 }
