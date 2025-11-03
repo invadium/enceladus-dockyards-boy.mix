@@ -19,16 +19,30 @@ function onSelect(item) {
 }
 
 function onIdle() {
+    if (env.state !== 'menu') return
+
+    let budget = 1000
+    switch(RND(2)) {
+        case 0: budget = 1200; break;
+        case 1: budget = 1600; break;
+        case 2: budget = 2000; break;
+    }
+
+    log('======================')
+    log('===   AUTOBATTLE   ===')
+    log('======================')
+    log(`budget: ${budget}`)
+    log(`state: ${env.state}`)
     this.__.control.newGame({
         playerA: {
             human: false,
             hybrid: false,
-            budget: 2000,
+            budget: budget,
         },
         playerB: {
             human: false,
             hybrid: false,
-            budget: 2000,
+            budget: budget,
         },
     })
 }

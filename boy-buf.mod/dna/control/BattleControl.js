@@ -258,14 +258,12 @@ class BattleControl {
 
     nextTurn() {
         if (this.status === HALT) return
-        log('--------------')
-        log('finishing turn')
+        // log('--------------')
+        // log('finishing turn')
         this.shipA.turn()
         this.shipB.turn()
         this.turn ++
-        log('====================')
-        log('Turn: ' + this.turn)
-        log('====================')
+        log(`=== Turn ${this.turn} ===`)
 
         if (!this.endCondition()) {
             this.turnA()
@@ -274,8 +272,7 @@ class BattleControl {
     }
 
     actuate(action) {
-        if ((action.id === dry.B || action.id === dry.MENU)
-                && !this.shipA.human && !this.shipB.human) {
+        if (action.id === dry.MENU && !this.shipA.human && !this.shipB.human) {
             this.finishBattle()
         }
     }

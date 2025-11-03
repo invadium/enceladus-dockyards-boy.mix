@@ -22,7 +22,7 @@ class repair extends dna.Pod {
         const pods = this.ship.damagedPods()
         if (pods.length > 0) {
             const pod = lib.math.rnde(pods)
-            log('repairing ' + pod.name + ' with +' + this.charge)
+            // log('repairing ' + pod.name + ' with +' + this.charge)
             this.charge = pod.repair(this.charge)
         }
     }

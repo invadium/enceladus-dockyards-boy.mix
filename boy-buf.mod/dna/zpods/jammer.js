@@ -24,7 +24,7 @@ class jammer extends dna.Pod {
     activate() {
         if (this.charge === this.df.charge) {
             this.charge = 0
-            log('missile is jammed!')
+            // log('missile is jammed!')
             return true
         } else {
             return false

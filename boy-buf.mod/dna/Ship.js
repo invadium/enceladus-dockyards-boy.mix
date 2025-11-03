@@ -135,7 +135,7 @@ class Ship {
 
     takePodAction(pod, target, cell) {
         if (pod.activate) {
-            //log(`activating ${pod.name} against ${target.name}`)
+            // log(`activating ${pod.name} against ${target.name}`)
             if (!cell && this.targetAutoSelection) {
                 cell = this.autoTarget(target, this.targetPriority)
             }
@@ -160,7 +160,7 @@ class Ship {
     }
 
     takeAction(action, target, cell) {
-        //log('action: ' + action)
+        // log('action: ' + action)
         this.skipped = 0
         const pods = this.pods.filter(pod => pod.triggersOn && pod.triggersOn(action))
 
@@ -178,7 +178,7 @@ class Ship {
 
             } else {
                 const pod = lib.math.rnde(pods)
-                //log('selected ' + pod.name)
+                // log('selected ' + pod.name)
                 this.takePodAction(pod, target, cell)
 
             }
@@ -247,13 +247,13 @@ class Ship {
     hit(attack, x, y) {
         const pod = this.getPod(x, y)
         if (pod && pod.tag !== 'debris' && pod.tag !== 'x') {
-            log(`hitting ${this.name}/${pod.name}`)
+            // log(`hitting ${this.name}/${pod.name}`)
             pod.hit(attack)
         } else {
             const loc = this.visualGrid.cellScreenCoord({x, y})
             sfx.play('missed', env.mixer.level.missed)
             lib.vfx.deflect(loc.x, loc.y, this.left)
-            log(`attack at ${x}:${y} missed!`)
+            // log(`attack at ${x}:${y} missed!`)
         }
     }
 
@@ -293,7 +293,7 @@ class Ship {
                     pod.hit(pod.hits)
                     //pod.hits = 0
                     //pod.ship.killPod(pod)
-                    log(`[${pod.ship.name}]/${pod.name} is destroyed by mass driver`)
+                    // log(`[${pod.ship.name}]/${pod.name} is destroyed by mass driver`)
                 }
             }
         })
@@ -322,12 +322,12 @@ class Ship {
 
     incoming(weapon, attack, x, y) {
         const target = this
-        log(`[${this.name}] => incoming [${weapon.name}](${attack})`)
+        // log(`[${this.name}] => incoming [${weapon.name}](${attack})`)
         if (weapon.tag === 'laser') {
             const origAttack = attack
             attack = this.shieldFromLaser(attack)
             if (attack < origAttack) {
-                log(`laser deflected: ${origAttack-attack}/${origAttack}`)
+                // log(`laser deflected: ${origAttack-attack}/${origAttack}`)
                 y = -1
                 this.incomingProjectile(weapon, x, y, () => {
                     const loc = target.visualGrid.cellScreenCoord({x, y})
@@ -349,14 +349,14 @@ class Ship {
                 const origAttack = attack
                 attack = this.armorFromDriver(attack, x, y)
                 if (attack < origAttack) {
-                    log(`driver deflected: ${origAttack-attack}/${origAttack}`)
+                    // log(`driver deflected: ${origAttack-attack}/${origAttack}`)
                 }
 
                 if (attack > 0) {
-                    log('original target at ' + x + ':' + y)
+                    // log('original target at ' + x + ':' + y)
                     x = bend(weapon, x, 1)
                     y = bend(weapon, y, 1)
-                    log('hitting cells at ' + x + ':' + y)
+                    // log('hitting cells at ' + x + ':' + y)
                     target.hit(floor(attack * .4), x, y)
                     target.hit(floor(attack * .15), x-1, y)
                     target.hit(floor(attack * .15), x+1, y)
@@ -377,7 +377,7 @@ class Ship {
 
                 const dx = RND(P) - floor(P/2)
                 const dy = RND(P) - floor(P/2)
-                //log('projectile delta: ' + dx + ':' + dy)
+                // log('projectile delta: ' + dx + ':' + dy)
 
                 const tx = x + dx
                 const ty = y + dy

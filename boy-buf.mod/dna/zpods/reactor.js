@@ -34,7 +34,7 @@ class reactor extends dna.Pod {
     turn() {
         let output = floor(this.output * (this.hits/this.df.hits))
         if (output === 0) return
-        log(`[${this.ship.name}] reactor output: +${output}`)
+        // log(`[${this.ship.name}] reactor output: +${output}`)
         const originalOutput = output
 
         switch(this.ship.rechargePriority) {
@@ -84,7 +84,7 @@ class reactor extends dna.Pod {
         const leftover = this.doRecharge(output)
         const consumed = originalOutput - leftover
 
-        log(`[${this.ship.name}/${this.name}] consumed ${consumed}/${originalOutput}`)
+        // log(`[${this.ship.name}/${this.name}] consumed ${consumed}/${originalOutput}`)
         this.ship.score.energy += consumed
 
         if (consumed > 0) {
